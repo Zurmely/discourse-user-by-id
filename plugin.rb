@@ -34,7 +34,7 @@ after_initialize do
   end
 
   DiscourseUserById::Engine.routes.draw do
-    get "/:id/" => "users#show_by_id", constraints: { id: /\d+/ }
+    get "/:id/*path" => "users#show_by_id", constraints: { id: /\d+/ }
   end
 
   ::Discourse::Application.routes.append do
