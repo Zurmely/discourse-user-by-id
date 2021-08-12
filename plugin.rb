@@ -29,7 +29,7 @@ after_initialize do
 
       guardian.ensure_can_see!(user)
 
-      redirect_to(path("/u/#{user.encoded_username}/#{params[:path]}"))
+      redirect_to(path("/u/#{user.encoded_username}/summary"))
     end
   end
 
@@ -38,6 +38,6 @@ after_initialize do
   end
 
   ::Discourse::Application.routes.append do
-    mount ::DiscourseUserById::Engine, at: "/user-by-id"
+    mount ::DiscourseUserById::Engine, at: "/uid"
   end
 end
